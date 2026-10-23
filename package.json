@@ -1,0 +1,28 @@
+{
+  "name": "uta-ai-skills",
+  "version": "0.1.0",
+  "description": "4 installable agent skills (agentskills.io): UTA credential verification, Sentinel MCP audits (UTA Shield checklist), MarketNow catalog recommendations, UTA conformance vectors. By AliceLabs LLC.",
+  "license": "MIT",
+  "type": "module",
+  "files": [
+    "skills/",
+    "agents/",
+    "mcp-servers/SPEC.md",
+    "site-agent-first/SKILL.md",
+    "site-agent-first/llms-v2.txt",
+    "audit.md",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": { "node": ">=18" },
+  "keywords": [
+    "ai-agents", "agent-skills", "agentskills", "mcp", "model-context-protocol",
+    "security", "trust", "claude-code", "audit", "uta", "alicelabs"
+  ],
+  "author": "AliceLabs LLC <support@alicelabs.site>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alicelabs-llc/uta-ai.git"
+  },
+  "homepage": "https://github.com/alicelabs-llc/uta-ai#readme"
+}
