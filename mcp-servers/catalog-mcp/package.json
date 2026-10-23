@@ -1,0 +1,19 @@
+{
+  "name": "@marketnow/catalog-mcp",
+  "version": "0.1.0",
+  "description": "Local stdio MCP server wrapping the MarketNow catalog API (search, skill pages, categories) with TTL cache. Scaffold v0.1 - build unverified, see SPEC.md and audit.md.",
+  "type": "module",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/index.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.0",
+    "zod": "^3.24.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.0",
+    "@types/node": "^22.0.0"
+  }
+}

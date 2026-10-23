@@ -1,0 +1,56 @@
+name: drift-check
+
+# "Números vivos en todas las superficies" — automatizado (regla de oro del agente).
+# Compara el total vivo de /api/skills contra las cifras citadas en este repo y
+# en el /SKILL.md servido por marketnow.site. Si difieren → build rojo = hay que
+# actualizar las cifras CON fecha nueva. El número muerto es un bug de credibilidad.
+
+on:
+  schedule:
+    - cron: "0 13 * * *"   # diario 13:00 UTC = 08:00 America/Guayaquil
+  workflow_dispatch:
+
+jobs:
+  drift:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fetch live totals and compare with cited figures
+        env:
+          SITE: https://marketnow.site
+        run: |
+          python3 - <<'EOF'
+          import json, re, urllib.request, sys, pathlib
+
+          def get(url):
+              req = urllib.request.Request(url, headers={'User-Agent': 'uta-ai-drift-check/1.0 (AliceLabs; +https://marketnow.site)'})
+              with urllib.request.urlopen(req, timeout=30) as r:
+                  return r.read().decode()
+
+          live_total = json.loads(get('https://www.marketnow.site/api/skills?limit=1'))['total']
+          print(f'vivo /api/skills total = {live_total}')
+
+          fail = False
+          for p in ['README.md', 'site-agent-first/SKILL.md']:
+              text = pathlib.Path(p).read_text(encoding='utf-8')
+              # cifra canónica citada: 71,198 / 71198 con fecha de obtención
+              cited = re.findall(r'71[.,]198', text)
+              if not cited:
+                  print(f'WARN {p}: no cita la cifra canónica (¿fue actualizada? revisar drift-check config)')
+                  continue
+              if str(live_total) not in text.replace(',', ''):
+                  print(f'DRIFT {p}: cita 71,198 pero el vivo es {live_total} — actualizar cifra + fecha (regla de oro: toda cifra lleva fecha + fuente)')
+                  fail = True
+              else:
+                  print(f'OK {p}: cifra consistente con el vivo')
+
+          # /SKILL.md servido por el sitio debe existir (réplica taiko-docs)
+          try:
+              sk = get('https://marketnow.site/SKILL.md')
+              print(f'OK sitio sirve /SKILL.md ({len(sk)} bytes)')
+          except Exception as e:
+              print(f'PENDING sitio aún no sirve /SKILL.md ({e}) — ver site-agent-first/GAPS.md')
+
+          sys.exit(1 if fail else 0)
+          EOF

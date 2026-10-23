@@ -1,0 +1,66 @@
+{
+  "name": "alicelabs-llc",
+  "version": "1.0.0",
+  "description": "Official AliceLabs/MarketNow plugins for AI agents - verify agent credentials, audit MCP skills, and discover the 71k-server catalog",
+  "metadata": {
+    "description": "Official AliceLabs/MarketNow plugins for AI agents - verify agent credentials, audit MCP skills, and discover the 71k-server catalog"
+  },
+  "owner": {
+    "name": "AliceLabs LLC",
+    "email": "info@alicelabs.site"
+  },
+  "plugins": [
+    {
+      "name": "uta",
+      "description": "Verify, translate, and issue AI-agent credentials with the Universal Trust Adapter - 9 formats, 12-stage fail-closed pipeline",
+      "version": "1.0.0",
+      "author": {
+        "name": "AliceLabs LLC"
+      },
+      "source": {
+        "source": "github",
+        "repo": "alicelabs-llc/uta-ai"
+      },
+      "category": "security"
+    },
+    {
+      "name": "sentinel-audit",
+      "description": "Audit and certify MCP servers and skills with the Sentinel pipeline (L1 index, L2 deep scans with 29 rules, L3 trust chain)",
+      "version": "1.0.0",
+      "author": {
+        "name": "AliceLabs LLC"
+      },
+      "source": {
+        "source": "github",
+        "repo": "alicelabs-llc/uta-ai"
+      },
+      "category": "security"
+    },
+    {
+      "name": "marketnow-catalog",
+      "description": "Search and recommend MCP skills from the MarketNow catalog (71,198 index-certified servers) with trust scores and badges",
+      "version": "1.0.0",
+      "author": {
+        "name": "AliceLabs LLC"
+      },
+      "source": {
+        "source": "github",
+        "repo": "alicelabs-llc/uta-ai"
+      },
+      "category": "discovery"
+    },
+    {
+      "name": "uta-conformance",
+      "description": "Run the UTA conformance suite and create third-party test vectors with expected outcomes per pipeline stage",
+      "version": "1.0.0",
+      "author": {
+        "name": "AliceLabs LLC"
+      },
+      "source": {
+        "source": "github",
+        "repo": "alicelabs-llc/uta-ai"
+      },
+      "category": "development"
+    }
+  ]
+}

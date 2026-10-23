@@ -1,0 +1,32 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate JSON files
+        run: |
+          for f in .claude-plugin/marketplace.json .claude-plugin/plugin.json; do
+            python3 -m json.tool "$f" > /dev/null && echo "OK $f"
+          done
+
+      - name: Validate SKILL.md frontmatter (agentskills.io)
+        run: python3 scripts/validate_skills.py
+
+      - name: No plaintext secrets
+        run: |
+          ! grep -rInE '(ghp_[A-Za-z0-9]{20,}|sk-[A-Za-z0-9]{20,}|AKIA[0-9A-Z]{16})' . --exclude-dir=node_modules
+
+      - name: Build MCP scaffold (gate blando hasta completar scaffold v0.1)
+        working-directory: mcp-servers/catalog-mcp
+        run: |
+          npm ci || npm install
+          npm run build
+        continue-on-error: true
