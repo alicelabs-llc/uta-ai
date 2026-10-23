@@ -1,7 +1,7 @@
 ---
 name: marketnow-catalog
 description: Search and recommend installable MCP skills from the MarketNow catalog (71k+ indexed skills, 16 categories, trust scores and risk levels). Use when a user asks which MCP server or skill to install for a task, wants catalog or category stats, or asks for a skill's public page, trust score, or embeddable badge.
-license: AL-1.0
+license: MIT
 metadata:
   version: 0.1.0
   source: https://github.com/eddyflores100-lang/uta-ai

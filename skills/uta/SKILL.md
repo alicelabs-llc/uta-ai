@@ -1,7 +1,7 @@
 ---
 name: uta
 description: Verify, translate, issue, or bridge AI-agent trust credentials (ATC, JWT/OAuth, W3C VC, A2A Agent Card, EAT-AI, ZTA, MCP Server Card, X.509) through the live MarketNow Trust API with a fail-closed 12-stage pipeline. Use when a user asks to verify or validate an agent credential, convert between credential formats, check revocation, or explain why a trust verdict failed.
-license: AL-1.0
+license: MIT
 metadata:
   version: 0.1.0
   source: https://github.com/eddyflores100-lang/uta-ai

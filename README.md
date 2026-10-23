@@ -60,7 +60,7 @@ npx skills add alicelabs-llc/uta-ai
 
 ## Licencia
 
-AL-1.0 (AliceLabs Source-Available License v1.0) — ver `LICENSE`. Coherente con `universal-trust-adapter`.
+MIT — see `LICENSE`. Scope: the uta-ai agent surface only; the UTA core stays AL-1.0 source-available at alicelabs-llc/universal-trust-adapter (https://marketnow.site/licensing).
 
 ## Caso de estudio origen
 

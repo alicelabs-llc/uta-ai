@@ -1,7 +1,7 @@
 ---
 name: uta-conformance
 description: Run the UTA conformance suite (npm @marketnow/uta-conformance, 36 vectors — positive, negative, mutation, and cross-language) against a UTA implementation, or inspect live conformance vectors to verify third-party interop. Use when asked to run conformance tests, check interop compatibility, or produce expected-outcome-per-stage results for the 12-stage trust pipeline.
-license: AL-1.0
+license: MIT
 metadata:
   version: 0.1.0
   source: https://github.com/eddyflores100-lang/uta-ai

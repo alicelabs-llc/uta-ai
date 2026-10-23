@@ -1,7 +1,7 @@
 ---
 name: sentinel-audit
 description: Audit and certify an MCP server, npm package, or agent tool for security and trust. Combines Sentinel certification (L1 catalog checks, L2 deep tarball scans with 29 rules) with the UTA Shield provider-side firewall checklist (identity gates, IOC blocking, rate limits, DLP masking, metering, fail-closed audit). Use when asked to audit, certify, score, badge, or harden an MCP server or AI tool.
-license: AL-1.0
+license: MIT
 metadata:
   version: 0.1.0
   source: https://github.com/eddyflores100-lang/uta-ai
